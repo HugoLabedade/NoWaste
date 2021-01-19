@@ -40,9 +40,9 @@ class Article
     private $stock;
 
     /**
-     * @ORM\OneToMany(targetEntity=commentaires::class, mappedBy="article", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Commentaires::class, mappedBy="article", orphanRemoval=true)
      */
-    private $commentaires;
+    private $Commentaires;
 
     /**
      * @ORM\ManyToMany(targetEntity=MotsCles::class, inversedBy="articles")
@@ -51,7 +51,7 @@ class Article
 
     public function __construct()
     {
-        $this->commentaires = new ArrayCollection();
+        $this->Commentaires = new ArrayCollection();
         $this->mots_cles = new ArrayCollection();
     }
 
@@ -109,29 +109,29 @@ class Article
     }
 
     /**
-     * @return Collection|commentaires[]
+     * @return Collection|Commentaires[]
      */
     public function getCommentaires(): Collection
     {
-        return $this->commentaires;
+        return $this->Commentaires;
     }
 
-    public function addCommentaire(commentaires $commentaire): self
+    public function addCommentaire(Commentaires $commentaire): self
     {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
+        if (!$this->Commentaires->contains($commentaire)) {
+            $this->Commentaires[] = $commentaire;
             $commentaire->setArticle($this);
         }
 
         return $this;
     }
 
-    public function removeCommentaire(commentaires $commentaire): self
+    public function removeCommentaire(Commentaires $Commentaire): self
     {
-        if ($this->commentaires->removeElement($commentaire)) {
+        if ($this->Commentaires->removeElement($Commentaire)) {
             // set the owning side to null (unless already changed)
-            if ($commentaire->getArticle() === $this) {
-                $commentaire->setArticle(null);
+            if ($Commentaire->getArticle() === $this) {
+                $Commentaire->setArticle(null);
             }
         }
 
