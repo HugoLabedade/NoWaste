@@ -7072,7 +7072,7 @@ webpack-manifest-plugin@^2.0.2:
     object.entries "^1.1.0"
     tapable "^1.0.0"
 
-webpack-notifier@^1.6.0:
+webpack-notifier@^1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/webpack-notifier/-/webpack-notifier-1.12.0.tgz#e2e0739b70d2cd751bb81469be0a1a8816798da7"
   integrity sha512-urRnbKupMQHUplsiwsOajp1F1DCJgJ+yyT4HIxAP+TfMF+ZtsKW+kVt2UcDm1E88xutOst+VChJZMDAD3aec5w==

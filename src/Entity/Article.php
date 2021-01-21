@@ -54,6 +54,11 @@ class Article
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
     public function __construct()
     {
         $this->Commentaires = new ArrayCollection();
@@ -175,6 +180,18 @@ class Article
     public function setCategorie(string $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}NoWaste{% endblock %}
+{% block title %}NoWaste
+{% endblock %}
 
 {% block body %}
-    <p>Liste des articles</p>
-{% endblock %}
+	<div class="row">
+		{% for articles in article %}
+			<div class="col-md-4">
+				<div class="card">
+                    <a href="/article/{{articles.nom}}"> <img src="{{ asset('images_directory/' ~ articles.image) }}" class="card-img-top" alt="..."></a>
+					<div class="card-body">
+						<h5 class="card-title">{{articles.nom}}</h5>
+						<p class="card-text">{{articles.couleur}}</p>
+						<a href="/article/{{articles.nom}}" class="btn btn-primary">voir l'article</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>{% endblock %}
