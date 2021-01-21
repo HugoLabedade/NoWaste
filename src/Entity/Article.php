@@ -49,6 +49,11 @@ class Article
      */
     private $mots_cles;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $categorie;
+
     public function __construct()
     {
         $this->Commentaires = new ArrayCollection();
@@ -158,6 +163,18 @@ class Article
     public function removeMotsCle(MotsCles $motsCle): self
     {
         $this->mots_cles->removeElement($motsCle);
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
