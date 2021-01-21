@@ -16,7 +16,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ArticlesController extends AbstractController
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/home", name="accueil")
      */
     public function index(ArticleRepository $articleRepository): Response
     {
@@ -84,11 +84,11 @@ class ArticlesController extends AbstractController
 
 
     /**
-     * @Route("/article/{nom}", name="article_show", methods={"GET"})
+     * @Route("/articles2/{nom}", name="article_show", methods={"GET"})
      */
     public function show(Article $article): Response
     {
-        return $this->render('article/show.html.twig', [
+        return $this->render('articles2/show.html.twig', [
             'article' => $article,
         ]);
     }
