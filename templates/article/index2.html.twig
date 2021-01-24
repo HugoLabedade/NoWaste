@@ -8,14 +8,16 @@
 		{% for articles in article %}
 			<div class="col-md-4">
 				<div class="card">
-                    <a href="/article/{{articles.nom}}"> <img src="{{ asset('images_directory/' ~ articles.image) }}" class="card-img-top" alt="..."></a>
+					<a href="/article/{{articles.nom}}">
+						<img src="{{ asset('images_directory/' ~ articles.image) }}" class="card-img-top" alt="..."></a>
 					<div class="card-body">
 						<h5 class="card-title">{{articles.nom}}</h5>
 						<p class="card-text">{{articles.couleur}}</p>
-						<a href="/articles2/{{articles.nom}}" class="btn btn-primary">voir l'article</a>
+						<a href="/article/{{articles.id}}" class="btn btn-primary">voir l'article</a>
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
 </div>{% endblock %}
+

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ArticleType extends AbstractType
@@ -17,8 +18,11 @@ class ArticleType extends AbstractType
             ->add('couleur')
             ->add('stock')
             ->add('categorie')
-            ->add('image')
-            ->add('mots_cles')
+            ->add( 'image', FileType::class, [
+            'label' => 'image',
+            'mapped' => false,
+            'required' => false,
+            ])
         ;
     }
 

@@ -24,14 +24,20 @@
 			</tr>
 			<tr>
 				<th>Stock</th>
-				<td>{{ article.stock }}</td>
+				<td>Ce produit est en rupture de stock.</td>
 			</tr>
 			<tr>
 				<th>Taille</th>
 				<td>{{ article.taille }}</td>
 			</tr>
+			<tr>
+				<th>Prix</th>
+				<td>{{ article.prix }}€</td>
+			</tr>
+
 		</tbody>
 	</table>
 
-	<a href="{{ path('accueil') }}">Retour</a>
+	<a href="{{ path('tout_debut') }}">Retour</a>
+
 {% endblock %}

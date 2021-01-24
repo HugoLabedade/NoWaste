@@ -59,6 +59,11 @@ class Article
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+
     public function __construct()
     {
         $this->Commentaires = new ArrayCollection();
@@ -192,6 +197,18 @@ class Article
     public function setImage($image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }
