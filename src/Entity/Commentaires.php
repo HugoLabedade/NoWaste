@@ -33,11 +33,6 @@ class Commentaires
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $pseudo;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $rgpd = false;
@@ -90,18 +85,6 @@ class Commentaires
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPseudo(): ?string
-    {
-        return $this->pseudo;
-    }
-
-    public function setPseudo(string $pseudo): self
-    {
-        $this->pseudo = $pseudo;
 
         return $this;
     }

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Commentaires;
 use App\Form\ArticleType;
+use App\Form\CommentaireFormType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
+
 class ArticleController extends AbstractController
 
 {
@@ -87,21 +90,39 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="article_vue", methods={"GET"})
+     * @Route("/article/{id}", name="article_vue", methods={"GET", "POST"})
      */
-    public function show(int $id, Article $article, ArticleRepository $articleRepository): Response
+    public function show(int $id, Article $article, ArticleRepository $articleRepository, Request $request): Response
     {
+        $article = $this->getDoctrine()->getRepository(Article::class)->findOneBy([
+            'id' => $id
+        ]);
+        $commentaire = new Commentaires();
+        $form = $this->createForm(CommentaireFormType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $commentaire->setArticle($article);
+            $commentaire->setCreatedAt(new \DateTime('now'));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+        }
+
         $entityManager = $this->getDoctrine()->getManager();
         $product = $entityManager->getRepository(Article::class)->find($id);
         $stock = $articleRepository->find($id)->getStock();
-        if($stock == 0){
+        if ($stock == 0) {
             return $this->render('article/show2.html.twig', [
                 'article' => $article,
+                'formComment' => $form->createView(),
             ]);
         } else {
-        return $this->render('article/show.html.twig', [
-            'article' => $article,
-        ]);
+            return $this->render('article/show.html.twig', [
+                'article' => $article,
+                'formComment' => $form->createView(),
+            ]);
         }
     }
 

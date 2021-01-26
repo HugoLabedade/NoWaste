@@ -17,6 +17,7 @@ class NewArticleType extends AbstractType
             ->add('taille')
             ->add('couleur')
             ->add('stock')
+            ->add('prix')
             ->add('categorie')
             ->add('image', FileType::class, [
             'label' => 'image',

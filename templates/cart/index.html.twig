@@ -13,7 +13,7 @@
 				<th>Quantité</th>
 				<th>Prix</th>
 				<th>Total</th>
-				<th></th>
+				<th>Supprimer l'article du panier</th>
 			</thead>
 			<tbody>
 				{% for produit in produits %}
@@ -21,6 +21,7 @@
 						<td>{{produit.article.nom}}</td>
 						<td>{{produit.article.couleur}}</td>
 						<td>{{produit.Quantité}}</td>
+						<td>{{produit.article.prix}}</td>
 						<td>{{produit.article.prix * produit.Quantité}}</td>
 						<td>
 							<a href="{{path('cart_remove', {'id':produit.article.id})}}" class="btn btn-danger btn-sm">
@@ -32,7 +33,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3" class="text-right">Total :
+					<td colspan="4" class="text-right">Prix total :
 					</td>
 					<td>{{ total }}</td>
 					<td></td>
