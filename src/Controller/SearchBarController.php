@@ -12,11 +12,15 @@ class SearchBarController extends AbstractController
 {
     /**
      * @Route("/search/resultat", name="search_bar")
+     * @param $request
+     * 
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(ArticleRepository $articleRepository, Request $request): Response
+    public function index(ArticleRepository $articleRepository, Request $request)
     {
-        $recherche = $_POST['recherche'];
 
+        $recherche = $request->get('recherche');
+        
         $article= $articleRepository->search($recherche);
 
         return $this->render('search_bar/index.html.twig', [
