@@ -5,6 +5,17 @@
 
 {% block body %}
 	{{form(form) }}
+
+<div>
+	<!-- Titre du site -->
+    <div class="title">
+        <h1 class="NO">
+        	No Waste
+        </h1>
+        <span class="Waste">
+        	Bienvenue sur notre site
+        </span>
+    </div>
 	<div class="row">
 		{% for articles in article %}
 			<div class="col-md-4">
@@ -20,5 +31,9 @@
 			</div>
 		{% endfor %}
 	</div>
-</div>{% endblock %}
+</div>
+</div>
+
+
+{% endblock %}
 
