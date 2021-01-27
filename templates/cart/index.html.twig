@@ -1,10 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!
+{% block title %}Votre Panier
 {% endblock %}
 
 {% block body %}
-	<h1>Votre panier</h1>
+	<!-- Titre du site -->
+    <div class="title">
+        <h1 class="NO">
+        	No Waste
+        </h1>
+        <span class="Waste">
+        	Votre panier
+        </span>
+	</div>
 	{% if produits | length > 0 %}
 		<table class="table">
 			<thead>

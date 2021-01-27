@@ -3,7 +3,16 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+
+    <!-- Titre du site -->
+    <div class="title">
+        <img class="NO" src="/logo/nw_nom_sans_fond.svg">
+        <span class="Waste">
+        	Connectez-vous 
+        </span>
+    </div>
+
+<form class="form_2" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -14,15 +23,6 @@
         </div>
     {% endif %}
 
-    <!-- Titre du site -->
-    <div class="title">
-        <h1 class="NO">
-        	No Waste
-        </h1>
-        <span class="Waste">
-        	Connectez-vous 
-        </span>
-    </div>
 
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
@@ -44,7 +44,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn btn-outline-dark" type="submit">
         Sign in
     </button>
 </form>
