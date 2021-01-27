@@ -21,10 +21,9 @@ class SearchArticleType extends AbstractType
                 ]
             ])
             ->add('Rechercher', SubmitType::class, [
-                'label'=> false, 
                 'attr' =>[
-                    'class'=> 'glyphicon glyphicon-search'
-                ]
+                    'class'=> 'btn btn-primary',
+                ],
             ])
         ;
     }

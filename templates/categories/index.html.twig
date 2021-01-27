@@ -4,31 +4,26 @@
 {% endblock %}
 
 {% block body %}
+
 	<div>
-	<!-- Titre du site -->
-    <div class="title">
-        <h1 class="NO">
-        	No Waste
-        </h1>
-        <span class="Waste">
-        	Nos articles
-        </span>
-    </div>
-		<div class="row">
-			<div class="col-md-4">
-				{% for article in articles %}
-					<div class="card">
-						<a href="/article/{{article.id}}">
-							<img class="img" src="{{ asset('images_directory/' ~ article.image) }}" class="card-img-top" alt="..."></a>
-						<div class="card-body">
-							<h5 class="card-title">{{article.nom}}</h5>
-							<p class="card-text">{{article.couleur}}</p>
-							<a href="/article/{{article.id}}" class="btn btn-primary">voir l'article</a>
+{# 		<div>
+			{{form(form) }}
+		</div> #}
+			<div class="row">
+				<div class="col-md-4">
+					{% for article in articles %}
+						<div class="card">
+							<a href="/article/{{article.id}}">
+								<img class="img" src="{{ asset('images_directory/' ~ article.image) }}" class="card-img-top" alt="..."></a>
+							<div class="card-body">
+								<h5 class="card-title">{{article.nom}}</h5>
+								<p class="card-text">{{article.couleur}}</p>
+								<a href="/article/{{article.id}}" class="btn btn-primary">voir l'article</a>
+							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				</div>
 			</div>
-    	</div>
-	</div>
-	
+		</div>
+
 	{% endblock %}
