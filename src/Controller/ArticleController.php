@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Commentaires;
 use App\Form\ArticleType;
 use App\Form\CommentaireFormType;
+use App\Form\SearchArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,10 +22,14 @@ class ArticleController extends AbstractController
     /**
      * @Route("/debut", name="tout_debut")
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, Request $request): Response
     {
+        $form = $this->createForm(SearchArticleType::class);
+        $search = $form->handleRequest($request);
+
         return $this->render('article/index2.html.twig', [
             'article' => $articleRepository->findAll(),
+            'form' => $form->createView()
         ]);
     }
     /**
