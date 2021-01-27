@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class CartController extends AbstractController
 {
@@ -77,6 +78,12 @@ class CartController extends AbstractController
     public function update(SessionInterface $session, ArticleRepository $articleRepository): Response
     {
 
+        $user = $this->security->getUser();
+        dd($user);
+        if($user == null){
+            return $this->render('login2.html.twig');
+        } else {
+
         $panier = $session->get('panier', []);
         foreach ($panier as $id => $quantity) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -86,5 +93,6 @@ class CartController extends AbstractController
             $entityManager->flush();
         }
         return $this->redirectToRoute('tout_debut');
+        }
     }
 }
