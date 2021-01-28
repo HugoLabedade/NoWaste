@@ -169,12 +169,3 @@ body{
     width: 100px; 
 }
 
-.img_A{
-    position: relative;
-    display:inline-block;
-}
-
-.description{
-    display:inline-block;
-    vertical-align:top;
-}

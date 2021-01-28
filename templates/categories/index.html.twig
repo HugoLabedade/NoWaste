@@ -11,7 +11,6 @@
 			<img class="NO" src="/logo/nw_nom_sans_fond.svg">
 		</div>
 			<div class="row">
-				<div class="col-md-4">
 					{% for article in articles %}
 						<div class="card">
 							<a href="/article/{{article.id}}">
@@ -19,11 +18,10 @@
 							<div class="card-body">
 								<h5 class="card-title">{{article.nom}}</h5>
 								<p class="card-text">{{article.couleur}}</p>
-								<a href="/article/{{article.id}}" class="btn btn-primary">voir l'article</a>
+								<a href="/article/{{article.id}}" class="btn btn-outline-info">voir l'article</a>
 							</div>
 						</div>
 					{% endfor %}
-				</div>
 			</div>
 		</div>
 
