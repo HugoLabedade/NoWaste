@@ -1,0 +1,29 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <h1>Users index</h1>
+    <a href="/logout"><h2> Se deconnecter</h2></a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mon mail</th>
+                <th>Mon Username</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+                <td>
+                    <a href="{{ path('modif_user', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
