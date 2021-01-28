@@ -4,12 +4,11 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="title_article">Article</h1>
-
+	
 	<table class="table">
 		<tbody>
 			<tr>
-				<td>{{ article.nom }}</td>
+				<td class="h1">{{ article.nom }}</td>
 			</tr>
 			<tr>
 				<td>
@@ -54,7 +53,7 @@
 
 		<a class="btn btn-outline-dark" href="{{ path('tout_debut') }}">Retour</a>
 
-		<a class="btn btn-outline-dark" href="{{ path('cart_add', {'id': article.id})}}">Ajouter au panier</a>
+		<a class="btn btn-warning" href="{{ path('cart_add', {'id': article.id})}}">Ajouter au panier</a>
 
 		<br>
 
