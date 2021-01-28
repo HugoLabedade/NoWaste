@@ -1,0 +1,52 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Votre Panier
+{% endblock %}
+
+{% block body %}
+	{% if produits | length > 0 %}
+		<table class="table">
+			<thead>
+				<th>Image</th>
+				<th>Article</th>
+				<th>Couleur</th>
+				<th>Quantité</th>
+				<th>Prix</th>
+				<th>Total</th>
+				<th>Supprimer l'article du panier</th>
+			</thead>
+			<tbody>
+				{% for produit in produits %}
+					<tr>
+						<td>
+							<img src="{{ asset('images_directory/' ~ produit.article.image) }}">
+						</td>
+
+						<td>{{produit.article.nom}}</td>
+						<td>{{produit.article.couleur}}</td>
+						<td>{{produit.Quantité}}</td>
+						<td>{{produit.article.prix}}</td>
+						<td>{{produit.article.prix * produit.Quantité}}</td>
+						<td>
+							<a href="{{path('cart_remove', {'id':produit.article.id})}}" class="btn btn-danger btn-sm">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4" class="text-right">Prix total :
+					</td>
+					<td>{{ total }}</td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+		<a class="btn btn-outline-dark" href="{{ path('cart_edit')}}">Commander</a>
+	{% else %}
+		<p>Votre panier est vide</p>
+	{% endif %}
+{% endblock %}
+

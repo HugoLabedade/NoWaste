@@ -35,10 +35,18 @@ class CartController extends AbstractController
             $total += $totalProduit;
         }
 
-        return $this->render('cart/index.html.twig', [
-            'produits' => $panierAvecDonnees,
-            'total' => $total,
-        ]);
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->render('cart/index.html.twig', [
+                'produits' => $panierAvecDonnees,
+                'total' => $total,
+            ]);
+        } else {
+            return $this->render('cart/index2.html.twig', [
+                'produits' => $panierAvecDonnees,
+                'total' => $total,
+            ]);
+        }
     }
 
     /**
