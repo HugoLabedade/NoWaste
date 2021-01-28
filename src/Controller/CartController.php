@@ -78,8 +78,7 @@ class CartController extends AbstractController
     public function update(SessionInterface $session, ArticleRepository $articleRepository): Response
     {
 
-        $user = $this->security->getUser();
-        dd($user);
+        $user = $this->getUser();
         if($user == null){
             return $this->render('login2.html.twig');
         } else {

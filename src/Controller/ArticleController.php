@@ -27,19 +27,35 @@ class ArticleController extends AbstractController
         $form = $this->createForm(SearchArticleType::class);
         $search = $form->handleRequest($request);
 
-        return $this->render('article/index2.html.twig', [
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->render('article/index2.html.twig', [
+                'article' => $articleRepository->findAll(),
+                'form' => $form->createView()
+            ]);
+        } else {
+        return $this->render('article/index3.html.twig', [
             'article' => $articleRepository->findAll(),
             'form' => $form->createView()
         ]);
+        }
     }
     /**
      * @Route("/crud", name="article_index")
      */
     public function crud(ArticleRepository $articleRepository): Response
     {
-        return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
-        ]);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser()->getId();
+        /* dd($user); */
+        if($user != '3'){
+            return $this->redirectToRoute('tout_debut');
+        } else {
+            return $this->render('article/index.html.twig', [
+                'articles' => $articleRepository->findAll(),
+            ]);
+        }
+
     }
 
     /**
@@ -152,15 +168,14 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("/article/{id}/delete", name="article_delete", methods={"GET"})
      */
     public function delete(Request $request, Article $article): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
             $entityManager->flush();
-        }
+    
 
         return $this->redirectToRoute('article_index');
     }
