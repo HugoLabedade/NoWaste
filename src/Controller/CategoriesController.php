@@ -22,11 +22,11 @@ class CategoriesController extends AbstractController
 
         $user = $this->getUser();
         if ($user == null) {
-            return $this->render('categories/index2.html.twig', [
+            return $this->render('categories/index.html.twig', [
                 'articles' => $article,
             ]);
         } else {
-        return $this->render('categories/index.html.twig', [
+        return $this->render('categories/index2.html.twig', [
             'articles' => $article,
         ]);
         }
