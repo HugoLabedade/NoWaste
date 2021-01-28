@@ -23,7 +23,6 @@ class SearchBarController extends AbstractController
     {
 
         $recherche = $request->get('recherche');
-        dd($recherche);
         
         $article= $articleRepository->search($recherche);
 

@@ -47,7 +47,6 @@ class ArticleController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser()->getId();
-        /* dd($user); */
         if($user != '3'){
             return $this->redirectToRoute('tout_debut');
         } else {
