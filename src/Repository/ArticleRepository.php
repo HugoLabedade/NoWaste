@@ -19,7 +19,7 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    public function search($mots) {
+    public function search(string $mots) {
         $query = $this->createQueryBuilder('a');
         if($mots != null) {
             $query->where('MATCH_AGAINST(a.nom, a.couleur) AGAINST
