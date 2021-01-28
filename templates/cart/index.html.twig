@@ -5,17 +5,18 @@
 
 {% block body %}
 	<!-- Titre du site -->
-    <div class="title">
-        <h1 class="NO">
-        	No Waste
-        </h1>
-        <span class="Waste">
-        	Votre panier
-        </span>
+	<div class="title">
+		<h1 class="NO">
+			No Waste
+		</h1>
+		<span class="Waste">
+			Votre panier
+		</span>
 	</div>
 	{% if produits | length > 0 %}
 		<table class="table">
 			<thead>
+				<th>Image</th>
 				<th>Article</th>
 				<th>Couleur</th>
 				<th>Quantité</th>
@@ -26,6 +27,10 @@
 			<tbody>
 				{% for produit in produits %}
 					<tr>
+						<td>
+							<img src="{{ asset('images_directory/' ~ produit.article.image) }}">
+						</td>
+
 						<td>{{produit.article.nom}}</td>
 						<td>{{produit.article.couleur}}</td>
 						<td>{{produit.Quantité}}</td>
