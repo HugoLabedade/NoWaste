@@ -1,0 +1,23 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}NoWaste
+{% endblock %}
+
+{% block body %}
+	<div>
+		<div class="row">
+			{% for articles in article %}
+				<div class="card">
+					<a href="/article/{{articles.id}}">
+						<img src="{{ asset('images_directory/' ~ articles.image) }}" class="card-img-top" alt="..."></a>
+					<div class="card-body">
+						<h5 class="card-title">{{articles.nom}}</h5>
+						<p class="card-text">{{articles.couleur}}</p>
+						<a href="/article/{{articles.id}}" class="btn btn-outline-info">voir l'article</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>{% endblock %}
+

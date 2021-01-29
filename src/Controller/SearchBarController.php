@@ -25,9 +25,15 @@ class SearchBarController extends AbstractController
         $recherche = $request->get('recherche');
         
         $article= $articleRepository->search($recherche);
-
-        return $this->render('search_bar/index.html.twig', [
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->render('search_bar/index.html.twig', [
             'article' => $article,
         ]);
+        } else {
+            return $this->render('search_bar/index2.html.twig', [
+            'article' => $article,
+        ]);
+        }
     }
 }

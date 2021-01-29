@@ -133,6 +133,10 @@ class ArticleController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $product = $entityManager->getRepository(Article::class)->find($id);
         $stock = $articleRepository->find($id)->getStock();
+
+
+        $user = $this->getUser();
+        if ($user == null) {
         if ($stock == 0) {
             return $this->render('article/show2.html.twig', [
                 'article' => $article,
@@ -143,6 +147,19 @@ class ArticleController extends AbstractController
                 'article' => $article,
                 'formComment' => $form->createView(),
             ]);
+        }
+        } else {
+            if ($stock == 0) {
+                return $this->render('article/show4.html.twig', [
+                    'article' => $article,
+                    'formComment' => $form->createView(),
+                ]);
+            } else {
+                return $this->render('article/show3.html.twig', [
+                    'article' => $article,
+                    'formComment' => $form->createView(),
+                ]);
+            }
         }
     }
 
