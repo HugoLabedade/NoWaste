@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #0C193A;">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Companies/DIY/Large/ManoMano</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="17.2602125%" y1="75.5542808%" x2="72.488965%" y2="32.4356373%" id="linearGradient-1">
+            <stop stop-color="#0397A7" offset="0.044188%"></stop>
+            <stop stop-color="#00ECCD" offset="99.71%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Companies/DIY/Large/ManoMano" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#0C193A" x="0" y="0" width="256" height="256"></rect>
+        <g id="manomano-vector-logo" transform="translate(56.000000, 59.000000)" fill-rule="nonzero">
+            <g id="Group" transform="translate(0.285550, 0.105721)">
+                <path d="M137.538154,50.3677461 L100.617535,5.30807628 C97.9045181,2.00527326 93.7760143,0.471829003 89.6475106,1.06161526 L31.8484577,10.3802381 C27.7199539,11.0879816 24.1812364,13.8009983 22.6477921,17.8115449 L1.65140151,72.0718802 C0.235914501,75.9644695 0.825700755,80.446845 3.42076027,83.6316908 L40.3413798,128.573403 C43.0543965,131.876206 47.1829003,133.409651 51.3114041,132.819864 L109.228414,123.619199 C113.356918,122.911455 116.895635,120.198438 118.42908,116.187892 L139.42547,61.9275566 C140.958915,58.0349674 140.251171,53.6705491 137.538154,50.3677461 Z" id="Path" fill="url(#linearGradient-1)"></path>
+                <polygon id="Path" fill="#FFFFFF" points="86.3447075 40.8132088 73.36941 63.9328299 60.5120696 36.4487905 44.4698835 40.6952515 24.7710227 92.1246128 42.346653 92.1246128 54.3782926 61.8095994 66.0560604 90.5911686 75.0208115 90.5911686 92.3605273 59.6863689 92.3605273 99.3200051 108.874542 93.6580571 108.874542 44.8237553"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
