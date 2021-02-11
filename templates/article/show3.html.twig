@@ -1,0 +1,54 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Post
+{% endblock %}
+
+{% block body %}
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<td class="h1">{{ article.nom }}</td>
+			</tr>
+			<tr class="img_A">
+				<td>
+					<img src="{{ asset('images_directory/' ~ article.image) }}">
+				</td>
+
+			</tr>
+
+			<tr class="description"></tr>
+			<tr>
+				<th>Couleur</th>
+				<td>{{ article.couleur }}</td>
+			</tr>
+			<tr>
+				<th>Stock</th>
+				<td>{{ article.stock }}</td>
+			</tr>
+			<tr>
+				<th>Taille</th>
+				<td>{{ article.taille }}</td>
+			</tr>
+			<tr>
+				<th>Prix</th>
+				<td>{{ article.prix }}€</td>
+			</tr>
+		</tbody>
+	</tr>
+
+</tbody></table><h2>Commentaires ({{article.commentaires|length}})</h2>{% for commentaire in article.commentaires %}
+<p>Publié par
+	{{commentaire.email}}
+	le
+	{{commentaire.createdAt|date('d/m/Y à H:i')}}</p>
+<div>{{commentaire.contenu}}</div>{% else %}
+<p>Il n'y a pas de commentaire</p>{% endfor %}<h3>Ajouter un commentaire</h3>{{ form(formComment) }}
+
+
+<a class="btn btn-outline-dark" href="{{ path('tout_debut') }}">Retour</a>
+
+<a class="btn btn-warning" href="{{ path('cart_add', {'id': article.id})}}">Ajouter au panier</a>
+
+<br>{% endblock %}
+

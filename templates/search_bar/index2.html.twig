@@ -1,20 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block title %}NoWaste
 {% endblock %}
 
 {% block body %}
 	<div>
-<<<<<<< HEAD
-		<div class ="title">
-			<h1 class="No">ManoMano</h1>
-			<p class="Waste">Articles d'occcasion</p>
-=======
-		<div class="title">
-			<img src="/logo/nw_nom_sans_fond.svg">
->>>>>>> eedacd2557d7895321ac963bce8d94c61b89fe9f
-		</div>
-		<div class="row" style="margin-top: 100px">
+		<div class="row">
 			{% for articles in article %}
 				<div class="card">
 					<a href="/article/{{articles.id}}">
@@ -29,3 +20,4 @@
 		</div>
 	</div>
 </div>{% endblock %}
+
